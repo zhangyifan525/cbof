@@ -60,14 +60,14 @@ class LearnerBase():
             loss.append(cur_loss / float(data.shape[0]))
             elapsed_time = time.time() - start_time
 
-            print "Epoch %d loss = %5.4f, cur_time: %6.1f s time_left: %8.1f s" % \
+            print ("Epoch %d loss = %5.4f, cur_time: %6.1f s time_left: %8.1f s" % \
                   (i + 1, loss[-1], elapsed_time, (n_iters - i) * elapsed_time)
-
+)
             if validation_data is not None:
                 val_acc = self.test_model(validation_data, validation_labels)
                 if val_acc > best_val_acc:
                     best_val_acc = val_acc
-                    print "New best found!", val_acc
+                    print ("New best found!", val_acc)
                     self.save_validation_parameters()
 
         if validation_data is not None:
